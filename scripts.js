@@ -37,26 +37,26 @@ function RandomQuestion(){
     //// set convert into array using spread operator
     //return [...data]  
     
-    //Randomly sort (not asc or desc) // Time-Complexity: nlogn (Upar waale se bhi bekaar h)
-    //questionBank.sort(()=> Math.random()-0.5);
-    //    return questionBank.slice(0,5);
+    Randomly sort (not asc or desc) // Time-Complexity: nlogn (Upar waale se bhi bekaar h)
+    questionBank.sort(()=> Math.random()-0.5);
+       return questionBank.slice(0,5);
 
     // Most optimized way using fisher algorithm
 
-    const arr = [];
-    let length = questionBank.length;
+    // const arr = [];
+    // let length = questionBank.length;
 
-    for(let i=0; i<5; i++){
-    const index = Math.floor(Math.random()*length);
-    arr.push(questionBank[index]);
+    // for(let i=0; i<5; i++){
+    // const index = Math.floor(Math.random()*length);
+    // arr.push(questionBank[index]);
 
-       //swap
-    [questionBank[index],questionBank[index-1]] = [questionBank[index-1],questionBank[index]];
-    length--;
+    //    //swap
+    // [questionBank[index],questionBank[index-1]] = [questionBank[index-1],questionBank[index]];
+    // length--;
 
-    }
+    // }
 
-    return arr;
+    // return arr;
 }
 
 // Form access & creating all element inside that form
