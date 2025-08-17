@@ -1,0 +1,21 @@
+p{
+    font-weight:650;
+    font-size:20px;
+}
+.question input {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.question{
+    background-color: rgb(187, 187, 233)
+}
+
+p:hover{
+    cursor: pointer;
+    background-color: aliceblue;
+}
+
+button:hover{
+    cursor: pointer;
+}
