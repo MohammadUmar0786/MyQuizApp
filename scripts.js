@@ -37,7 +37,7 @@ function RandomQuestion(){
     //// set convert into array using spread operator
     //return [...data]  
     
-    Randomly sort (not asc or desc) // Time-Complexity: nlogn (Upar waale se bhi bekaar h)
+   // Randomly sort (not asc or desc) // Time-Complexity: nlogn (Upar waale se bhi bekaar h)
     questionBank.sort(()=> Math.random()-0.5);
        return questionBank.slice(0,5);
 
