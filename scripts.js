@@ -23,40 +23,22 @@ const questionBank = [
 ];
 
 // Function
-
 function RandomQuestion(){
-    //// Use set: as it not include duplicate elements:
-    //const data = new Set();
-    
-    //// Random any 5 question only selection without repeat
-    //while(data.size!=5){ 
-    //let index = Math.floor(Math.random()*questionBank.length);
-    //data.add(questionBank[index])
-    //}
-
-    //// set convert into array using spread operator
-    //return [...data]  
-    
-   // Randomly sort (not asc or desc) // Time-Complexity: nlogn (Upar waale se bhi bekaar h)
-    questionBank.sort(()=> Math.random()-0.5);
-       return questionBank.slice(0,5);
 
     // Most optimized way using fisher algorithm
+    const arr = [];
+    let length = questionBank.length;
 
-    // const arr = [];
-    // let length = questionBank.length;
+    for(let i=0; i<5; i++)
+    {
+        const index = Math.floor(Math.random()*length);
+        arr.push(questionBank[index]);
 
-    // for(let i=0; i<5; i++){
-    // const index = Math.floor(Math.random()*length);
-    // arr.push(questionBank[index]);
-
-    //    //swap
-    // [questionBank[index],questionBank[index-1]] = [questionBank[index-1],questionBank[index]];
-    // length--;
-
-    // }
-
-    // return arr;
+       //swap
+    [questionBank[index],questionBank[length-1]] = [questionBank[length-1],questionBank[index]];
+    length--;
+    }
+    return arr;
 }
 
 // Form access & creating all element inside that form
@@ -83,8 +65,8 @@ problem.forEach((obj,index )=> {
     const para = document.createElement('p');
     para.innerText = `${index+1}. ${obj.question}` // or obj['question']   // index=> used for question numbering
     div_element.appendChild(para)
-    // Create 4 labels for 4 options & get each option value from obj and getting vaue from options using foreach
 
+    // Create 4 labels for 4 options & get each option value from obj and getting vaue from options using foreach
     obj.options.forEach((data)=>{
 
         const label = document.createElement('label');
@@ -96,12 +78,9 @@ problem.forEach((obj,index )=> {
         label.appendChild(input);  //input ko label m daalna
         label.appendChild(document.createTextNode(data))  // It's a option m data like: Sachin tendulakr, not used innerhtml as it's not part of input filed.
         div_element.appendChild(label);
-        div_element.appendChild(document.createElement('br'));
-        
-    })
-    
-    form.appendChild(div_element);
-    
+        div_element.appendChild(document.createElement('br'));       
+    })   
+    form.appendChild(div_element);   
 });
 
     const btn = document.createElement('button');
@@ -120,7 +99,6 @@ problem.forEach((obj,index )=> {
         form.appendChild(result);  // 👈 this ensures result is the last element (issue fixed with help of chatgpt)
         
 // Check the submiited form logic (Already done in part A of this project):
-
     form.addEventListener('submit', ((event)=>{
     event.preventDefault();
     const data = new FormData(form);
@@ -139,7 +117,6 @@ problem.forEach((obj,index )=> {
     if(Total_correct>1){
         helping_verb = "are";
     }
-
 
 // Some cool result effect
 const result = document.getElementById("result");
@@ -161,7 +138,6 @@ form.addEventListener('reset',((e)=>{
     result.innerHTML=""
     result.className =""
 }))
-
 }))
 
 
